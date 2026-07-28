@@ -12,7 +12,7 @@ function Contacto() {
       <ul className="lista-datos">
         <li>
           <span className="dato-etiqueta">Correo</span>
-          <a href="mailto:[EMAIL_ADDRESS]">bmpstore@gmail.com</a>
+          <a href="mailto:bmpstore@gmail.com">bmpstore@gmail.com</a>
         </li>
         <li>
           <span className="dato-etiqueta">Teléfono</span>

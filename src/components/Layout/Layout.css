@@ -10,10 +10,8 @@
   top: 0;
   z-index: 10;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
   padding: 12px 24px;
   background-color: rgba(11, 17, 32, 0.92);
   border-bottom: 1px solid var(--borde);
@@ -28,6 +26,7 @@
   font-weight: bold;
   color: var(--texto);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .marca img {
@@ -38,6 +37,31 @@
 
 .marca span {
   color: var(--acento-claro);
+}
+
+/* Botón hamburguesa: oculto en escritorio */
+.menu-boton {
+  display: none;
+  margin-left: auto;
+  padding: 8px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.menu-boton:focus-visible {
+  outline: 2px solid var(--acento-claro);
+  outline-offset: 2px;
+}
+
+.panel {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .menu {
@@ -60,7 +84,6 @@
   color: var(--texto);
 }
 
-/* Enlace de la ruta activa */
 .enlace.activo {
   background-color: rgba(79, 125, 251, 0.18);
   color: var(--acento-claro);
@@ -94,14 +117,53 @@
   text-align: center;
 }
 
+/* Mobile: la barra pasa a una columna con menú desplegable */
 @media (max-width: 720px) {
   .barra {
-    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 16px;
+  }
+
+  .menu-boton {
+    display: inline-flex;
+  }
+
+  /* En mobile la marca va solo con el texto, sin el logo */
+  .marca img {
+    display: none;
+  }
+
+  /* el panel se muestra solo cuando el botón lo abre */
+  .panel {
+    display: none;
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+    padding: 10px 0 4px;
+  }
+
+  .panel-abierto {
+    display: flex;
   }
 
   .menu {
-    justify-content: center;
-    order: 3;
-    width: 100%;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .enlace {
+    padding: 12px 14px;
+  }
+
+  .sesion {
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid var(--borde);
+  }
+
+  .contenido {
+    padding: 24px 16px 40px;
   }
 }

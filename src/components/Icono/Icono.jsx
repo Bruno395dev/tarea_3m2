@@ -14,16 +14,18 @@ const iconos = {
     'M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z',
   local:
     'M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z',
+  menu: 'M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z',
+  cerrar:
+    'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z',
 }
 
-// icono SVG
-function Icono({ nombre, tamano = 26 }) {
+function Icono({ nombre }) {
   return (
     <svg
       className="icono"
       viewBox="0 0 24 24"
-      width={tamano}
-      height={tamano}
+      width="26"
+      height="26"
       fill="currentColor"
       aria-hidden="true"
       focusable="false"
