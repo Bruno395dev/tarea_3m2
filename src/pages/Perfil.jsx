@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 
-// Página privada: solo se ve si RutaProtegida deja pasar
 function Perfil({ usuario }) {
   return (
     <section className="pagina">

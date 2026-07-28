@@ -1,6 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom'
 
-// Envuelve una página privada: si no hay usuario logueado, redirige al login
 function RutaProtegida({ usuario, children }) {
   const location = useLocation()
 

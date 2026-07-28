@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
 
-// Se muestra cuando la URL no coincide con ninguna ruta (path="*")
 function NoEncontrada() {
   const location = useLocation()
 
