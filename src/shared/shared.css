@@ -10,6 +10,12 @@
   max-width: 420px;
 }
 
+.pagina-centrada {
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+}
+
 .titulo {
   font-size: 28px;
   color: var(--texto);

@@ -23,7 +23,8 @@ y `Route` dentro de un layout con navegación fija.
 - Rutas anidadas con `<Outlet />` dentro de un layout de navegación fija.
 - Sección de cuenta protegida con `Navigate` y `useLocation`: sin sesión redirige
   al login, avisa por qué, y al entrar vuelve a la página que se había pedido.
-- Página 404 con `path="*"` para las URLs que no existen.
+- Página 404 con `path="*"` para las URLs que no existen, con la ilustración
+  animada del gatito.
 - Tema oscuro propio con variables CSS, tipografía Montserrat e íconos SVG.
 
 ## Capturas de pantalla
@@ -47,6 +48,10 @@ y `Route` dentro de un layout con navegación fija.
 ### Ruta protegida con la sesión iniciada
 
 ![Perfil del usuario logueado](media/perfil-logueado.png)
+
+### Página 404
+
+![Página de error 404 con la ilustración del gatito](media/pagina-404.png)
 
 ### Nosotros y Contacto
 
@@ -134,6 +139,9 @@ tarea_3m2/
 │   └── logo.png
 ├── src/
 │   ├── components/
+│   │   ├── Gatito/
+│   │   │   ├── Gatito.jsx              # Ilustración animada de la página 404
+│   │   │   └── Gatito.css
 │   │   ├── Icono/
 │   │   │   ├── Icono.jsx               # Íconos SVG de Material Symbols
 │   │   │   └── Icono.css
@@ -238,7 +246,8 @@ npm run lint      # Revisa el código con oxlint
 
 ## Créditos de recursos
 
-- Logo BMP: diseño propio.
+- Logo BMP y el gatito del 404: dibujos propios en SVG, el gatito lo reutilicé de
+  la tarea anterior.
 - Fotos de los productos: DummyJSON (<https://dummyjson.com/>). Las descargué a
   `public/img/` para no depender de un servidor externo.
 - Íconos: Material Symbols de Google (<https://fonts.google.com/icons>).
