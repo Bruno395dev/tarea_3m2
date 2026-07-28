@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { etiquetaCategoria, formatearPrecio } from '../../data/productos.js'
 import './ProductoCard.css'
 
-// Tarjeta de producto, se usa en el inicio y en el catálogo
 function ProductoCard({ producto }) {
   return (
     <li className="producto-card">

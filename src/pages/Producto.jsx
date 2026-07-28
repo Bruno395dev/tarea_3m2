@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { productos, etiquetaCategoria, formatearPrecio } from '../data/productos.js'
 
 function Producto() {
-  // useParams lee el :id que viene en la URL (siempre llega como texto)
+  // el id llega como texto desde la URL
   const { id } = useParams()
   const navigate = useNavigate()
 
@@ -33,7 +33,6 @@ function Producto() {
         <div className="detalle-info">
           <span className="producto-categoria">{etiquetaCategoria(producto.categoria)}</span>
           <h1 className="titulo">{producto.nombre}</h1>
-          {/* El id que llegó por la URL se muestra como código de producto */}
           <p className="codigo">Código: PROD-{id}</p>
           <p className="texto">{producto.descripcion}</p>
           <p className="detalle-precio">{formatearPrecio(producto.precio)}</p>
@@ -44,11 +43,10 @@ function Producto() {
           </p>
 
           <div className="botonera">
-            {/* Navegación imperativa: lleva al perfil, que es una ruta protegida */}
             <button className="btn btn-lleno" onClick={() => navigate('/perfil')}>
               Comprar ahora
             </button>
-            {/* -1 vuelve a la página anterior del historial */}
+            {/* -1 vuelve a la página anterior */}
             <button className="btn btn-borde" onClick={() => navigate(-1)}>
               Volver
             </button>

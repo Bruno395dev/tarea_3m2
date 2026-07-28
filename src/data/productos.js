@@ -90,7 +90,7 @@ export const productos = [
   },
 ]
 
-// Categorías para los filtros: el valor va en la URL y la etiqueta se muestra en pantalla
+// el valor va en la URL, la etiqueta es lo que se ve
 export const categorias = [
   { valor: 'todas', etiqueta: 'Todas' },
   { valor: 'notebooks', etiqueta: 'Notebooks' },
@@ -99,13 +99,11 @@ export const categorias = [
   { valor: 'audio', etiqueta: 'Audio' },
 ]
 
-// Devuelve el nombre visible de una categoría a partir de su valor
 export function etiquetaCategoria(valor) {
   const encontrada = categorias.find((item) => item.valor === valor)
   return encontrada ? encontrada.etiqueta : valor
 }
 
-// Formatea el precio con separador de miles
 export function formatearPrecio(precio) {
   return '$ ' + precio.toLocaleString('es-AR')
 }
