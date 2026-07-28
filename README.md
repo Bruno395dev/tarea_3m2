@@ -54,6 +54,29 @@ y `Route` dentro de un layout con navegación fija.
 
 ![Página de contacto](media/contacto.png)
 
+### Vista móvil (390 px)
+
+| Inicio | Menú desplegable | Ficha de producto |
+|--------|------------------|-------------------|
+| ![Inicio en móvil](media/mobile-inicio.png) | ![Menú hamburguesa abierto](media/mobile-menu.png) | ![Producto en móvil](media/mobile-producto.png) |
+
+---
+
+## Diseño responsive
+
+El layout se adapta con **CSS puro** (sin librerías) y un único punto de corte en
+**720 px**:
+
+| Zona | En escritorio | En móvil |
+|------|---------------|----------|
+| Barra de navegación | Logo + enlaces + sesión en una fila | Botón hamburguesa que abre y cierra un panel vertical; el logo queda solo con el texto |
+| Grilla de productos | `repeat(auto-fill, minmax(220px, 1fr))`: 4 columnas | La misma regla resuelve 1 columna sola, sin media query |
+| Ficha del producto | `grid` de 2 columnas (foto + datos) | 1 columna, foto más chica |
+| Botones y buscador | Ancho según contenido | Ocupan todo el ancho para tocarlos con el pulgar |
+
+El menú móvil es lo único que necesita JavaScript: un `useState` en `Layout.jsx`
+guarda si está abierto, y cada `NavLink` lo cierra al navegar.
+
 ---
 
 ## Rutas de la aplicación
@@ -90,16 +113,13 @@ y `Route` dentro de un layout con navegación fija.
 
 ## Cómo funciona la ruta protegida
 
-1. Alguien entra a `/perfil` sin haber iniciado sesión.
-2. `RutaProtegida` no encuentra usuario y devuelve
-   `<Navigate to="/login" state={{ desde: location.pathname }} replace />`.
-3. `Login.jsx` lee ese `state` con `useLocation` y muestra el aviso
-   *«Necesitás iniciar sesión para ver la página que querías visitar»*.
-4. Al enviar el formulario se guarda el usuario y `useNavigate` devuelve a la ruta
-   pedida originalmente (`navigate(desde, { replace: true })`).
+Si entrás a `/perfil` sin sesión, `RutaProtegida` te manda al login con `Navigate`
+y guarda de dónde venías en el `state`. El login lee ese dato con `useLocation`,
+avisa por qué te redirigió y, cuando entrás, `useNavigate` te devuelve a la página
+que querías ver.
 
-La sesión se guarda en un `useState` de `App.jsx`: es una simulación de front-end,
-no hay backend ni validación de contraseña.
+La sesión se guarda en un `useState` de `App.jsx`: no hay backend ni validación de
+contraseña, es solo una simulación.
 
 ---
 
@@ -210,29 +230,19 @@ npm run lint      # Revisa el código con oxlint
 
 - Documentación oficial de React: <https://es.react.dev/>
 - Documentación oficial de React Router: <https://reactrouter.com/>
-- `BrowserRouter`: <https://reactrouter.com/api/declarative-routers/BrowserRouter>
-- `Route` y `Routes`: <https://reactrouter.com/start/declarative/routing>
-- `Link` y `NavLink`: <https://reactrouter.com/start/declarative/navigating>
-- `useParams`: <https://reactrouter.com/api/hooks/useParams>
-- `useNavigate`: <https://reactrouter.com/api/hooks/useNavigate>
-- `useSearchParams`: <https://reactrouter.com/api/hooks/useSearchParams>
-- `useLocation`: <https://reactrouter.com/api/hooks/useLocation>
-- `Outlet` y rutas anidadas: <https://reactrouter.com/start/declarative/routing#nested-routes>
+- Rutas con `Routes` y `Route`: <https://reactrouter.com/start/declarative/routing>
+- Navegación con `Link` y `useNavigate`: <https://reactrouter.com/start/declarative/navigating>
+- Hooks de React Router (`useParams`, `useSearchParams`, `useLocation`): <https://reactrouter.com/api/hooks/useParams>
 - Documentación oficial de Vite: <https://vite.dev/>
 - Variables CSS (MDN): <https://developer.mozilla.org/es/docs/Web/CSS/Using_CSS_custom_properties>
 
 ## Créditos de recursos
 
-- **Logo BMP**: diseño propio.
-- **Fotos de los productos**: imágenes de demostración de DummyJSON
-  (<https://dummyjson.com/>), de uso libre para proyectos de prueba. Están
-  guardadas en `public/img/` para que el sitio funcione sin depender de un
-  servidor externo.
-- **Íconos**: trazados SVG de Material Symbols de Google
-  (<https://fonts.google.com/icons>), licencia Apache 2.0.
-- **Tipografía**: Montserrat, de Google Fonts
-  (<https://fonts.google.com/specimen/Montserrat>), licencia SIL Open Font.
-- Las marcas y modelos que aparecen en el catálogo se usan solo con fines de
-  demostración.
+- Logo BMP: diseño propio.
+- Fotos de los productos: DummyJSON (<https://dummyjson.com/>). Las descargué a
+  `public/img/` para no depender de un servidor externo.
+- Íconos: Material Symbols de Google (<https://fonts.google.com/icons>).
+- Tipografía: Montserrat, de Google Fonts.
+- Las marcas y modelos del catálogo se usan solo como ejemplo.
 
 ---
