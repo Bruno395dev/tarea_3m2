@@ -1,0 +1,41 @@
+.gatito {
+  max-width: 100%;
+}
+
+/* Cola del gatito */
+.gatito-cola {
+  transform-box: fill-box;
+  transform-origin: left bottom;
+  animation: gatito-cola 3s ease-in-out infinite;
+}
+
+/* Chispas del cable */
+.gatito-chispas {
+  animation: gatito-chispas 2.2s ease-in-out infinite;
+}
+
+@keyframes gatito-cola {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+}
+
+@keyframes gatito-chispas {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  35% {
+    opacity: 0.15;
+  }
+  55% {
+    opacity: 0.85;
+  }
+  72% {
+    opacity: 0.3;
+  }
+}
